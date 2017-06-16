@@ -14,7 +14,7 @@ sub _changed {
 
 	my @changed
 		= grep { /\.(p[lm]|t)$/xms }
-		$git->command( qw/diff --cached --name-only --diff-filter=AM/ )
+		$git->filter_files_in_index( 'AM' )
 		;
 
 	return \@changed;
